@@ -1,61 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+{
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
 body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 5%;
-    font-family: Arial, sans-serif;
-    padding-top: 100px;
-    
+    min-height: 100vh;
+    margin: 0;
+    background-color: #faf2d8;
 }
 
 .calcolatrice {
-    
-    width: 400px;
-    height: 420px;
-    border: 1px solid #333;
+    width: 250px;
+    background: linear-gradient(145deg, #ffffff, #e0e0e0);
     padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0px 0px 8px rgb(0, 0, 0);
-    background-color: #333;
+    border-radius: 20px;
+    box-shadow: 10px 10px 20px #464545, -10px -10px 20px #919191;
 }
 
 #schermo {
-    width: 97%;
-    height: 60px;
-    font-size: 1.2cm;
+    width: 90%;
+    padding: 15px;
+    font-size: 1.5em;
     text-align: right;
-    margin-bottom: 10px;
-    box-shadow: 0px 1px 0px rgb(0, 0, 0);
-    border-radius: 20px
+    border: none;
+    outline: none;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    background: #f9f9f9;
+    box-shadow: inset 3px 3px 6px #7e7e7e, inset -3px -3px 6px #c5c5c5;
 }
 
 .buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 5px;
+    gap: 10px;
 }
 
 button {
-    width: 100%;
-    height: 80px;
     font-size: 1.2em;
+    padding: 15px;
     border: none;
+    border-radius: 10px;
     cursor: pointer;
-    border-radius: 15%;
+    transition: all 0.3s ease;
+    background-color: #1e3ef7;
+    color: white;
+    box-shadow: 4px 4px 10px #2e2e2e, -4px -4px 10px #ffffff;
 }
 
 button:hover {
-    background-color: #bbbbbb;
+    background-color: #090158;
+    box-shadow: 3px 3px 8px #c0c0c0, -3px -3px 8px #ffffff;
 }
 
-#uguale{
-    background-color: #f79234;
+#uguale {
+    background-color: #ff5e00;
+    color: #fff;
 }
 
-#uguale:hover{
-    background-color: #ff6600;
+#uguale:hover {
+    background-color: #b84900;
 }
 
-#cancella:hover{
-    background-color: #d13b36;
+#cancella {
+    background-color: #ff0000;
+    color: white;
+}
+
+#cancella:hover {
+    background-color: #970000;
 }
