@@ -1,37 +1,39 @@
-
-function aggiungi(value) {
-    document.getElementById("schermo").value += value;
+function aggiungi(valore) {
+    document.getElementById("schermo").value += valore;
 }
-
 
 function cancella() {
     document.getElementById("schermo").value = "";
 }
 
-
 function risultato() {
-    const schermo = document.getElementById("schermo");
-    try {
-        schermo.value = eval(schermo.value);
-    } catch (error) {
-        schermo.value = "Errore";
+    let schermo = document.getElementById("schermo");
+    let espressione = schermo.value;
+
+    if (espressione.includes('+')) {
+        let numeri = espressione.split('+');
+        schermo.value = parseFloat(numeri[0]) + parseFloat(numeri[1]);
+    } else if (espressione.includes('-')) {
+        let numeri = espressione.split('-');
+        schermo.value = parseFloat(numeri[0]) - parseFloat(numeri[1]);
+    } else if (espressione.includes('*')) {
+        let numeri = espressione.split('*');
+        schermo.value = parseFloat(numeri[0]) * parseFloat(numeri[1]);
+    } else if (espressione.includes('/')) {
+        let numeri = espressione.split('/');
+        schermo.value = parseFloat(numeri[0]) / parseFloat(numeri[1]);
     }
 }
 
+document.addEventListener("keydown", function(evento) {
+    let schermo = document.getElementById("schermo");
+    let simboliConsentiti = "0123456789+-*/"; 
 
-document.addEventListener("keydown", function(event) {
-    const schermo = document.getElementById("schermo");
-    const simboliAmmessi = "0123456789+-*";
-
-    if (event.key === "Enter") {
-        risultato();
-    }
-    
-    else if (event.key === "Backspace") {
-        cancella();
-    }
-    
-    else if (simboliAmmessi.includes(event.key)) {
-        schermo.value += event.key;
+    if (evento.key === "Enter") {
+        risultato(); 
+    } else if (evento.key === "Backspace") {
+        cancella(); 
+    } else if (simboliConsentiti.includes(evento.key)) {
+        schermo.value += evento.key; 
     }
 });
