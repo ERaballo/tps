@@ -24,16 +24,4 @@ function risultato() {
         schermo.value = parseFloat(numeri[0]) / parseFloat(numeri[1]);
     }
 }
-
-document.addEventListener("keydown", function(evento) {
-    let schermo = document.getElementById("schermo");
-    let simboliConsentiti = "0123456789+-*/"; 
-
-    if (evento.key === "Enter") {
-        risultato(); 
-    } else if (evento.key === "Backspace") {
-        cancella(); 
-    } else if (simboliConsentiti.includes(evento.key)) {
-        schermo.value += evento.key; 
-    }
-});
+;
