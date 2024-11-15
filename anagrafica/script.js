@@ -7,6 +7,12 @@ function inserisci() {
     
     if(nome&&cognome&&indirizzo&&citta&&email){
     var table = document.getElementById("tab").getElementsByTagName('tbody')[0];
+    const nomi=[];
+    nomi.push(nome);
+    nomi.push(cognome);
+    nomi.push(indirizzo);
+    nomi.push(citta);
+    nomi.push(email);
 
     var row = table.insertRow(-1);
     
@@ -16,15 +22,13 @@ function inserisci() {
     var cell4 = row.insertCell(3);
     var cell5 = row.insertCell(4);
     
-    cell1.innerHTML = nome;
-    cell2.innerHTML = cognome;
-    cell3.innerHTML = indirizzo;
-    cell4.innerHTML = citta;
-    cell5.innerHTML = email;
+    
+    cell1.innerHTML = nomi[0];
+    cell2.innerHTML = nomi[1];
+    cell3.innerHTML = nomi[2];
+    cell4.innerHTML = nomi[3];
+    cell5.innerHTML = nomi[4];
 
     
     document.getElementById("form").reset();}
 }
-
-
-
