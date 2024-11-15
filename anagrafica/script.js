@@ -7,7 +7,7 @@ function inserisci() {
     var email = document.getElementById("email").value;
     
     if(nome&&cognome&&indirizzo&&citta&&email){
-    var table = document.getElementById("tab").getElementsByTagName('tbody')[0];
+    var table = document.getElementById("tab")
     const nomi=[];
     nomi.push(nome);
     nomi.push(cognome);
