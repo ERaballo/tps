@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap');
 
 body {
@@ -21,7 +22,7 @@ table {
     float: right;
     margin-right: 35px;
     border-radius: 15px;
-    //overflow: hidden;
+    overflow: hidden;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
