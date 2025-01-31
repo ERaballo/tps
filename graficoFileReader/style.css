@@ -1,0 +1,64 @@
+body {
+    background-color:#888888;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #fff;
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.col-5, .col-7 {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+input[type="file"] {
+    display: block;
+    margin: 0 auto 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #999898;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+
+#tabella {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+#tabella th, #tabella td {
+    border: 1px solid #fff;
+    padding: 10px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+canvas {
+    background: white;
+    border-radius: 10px;
+    display: block;
+    margin: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
