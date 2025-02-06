@@ -6,35 +6,51 @@ const canvas = document.getElementById("grafico");
 const grafico = canvas.getContext("2d");
 
 function leggi(input) {
-    const file = input.files[0];
-    const reader = new FileReader();
+    if (input.files.length === 0) {
+        alert("Seleziona un file valido.");
+        return;
+    }
 
-    reader.addEventListener("load", function () {
-        stringa = reader.result;
-        inserisci();
-    });
+    let file = input.files[0];
+    let reader = new FileReader();
 
     reader.readAsText(file);
+    
+    reader.onload = function () {
+        stringa = reader.result;
+        inserisci();
+    };
 }
 
 function inserisci() {
-    document.getElementById("titolo").textContent = "Informazioni del file";
-    const tab = document.getElementById("tabella");
-    tab.innerHTML = "";
+    document.getElementById("titolo").innerHTML = "Informazioni del file";
+    let tab = document.getElementById("tabella");
+    
+    righe = stringa.split("\n");
+    tab.innerHTML = ""; 
 
-    righe = stringa.split("\n").map(riga => riga.split(","));
-    tabella = [...righe];
+    for (let n = 0; n < righe.length; n++) {
+        tabella[n] = righe[n].split(",");
+        let nuovaRiga = tab.insertRow();
 
-    righe.forEach((riga, r) => {
-        const nuovaRiga = tab.insertRow();
-        riga.forEach((valore, c) => {
-            const cella = nuovaRiga.insertCell(c);
-            cella.textContent = valore.replace(/"/g, '');
-        });
-    });
+        for (let z = 0; z < tabella[n].length; z++) {
+            let cella = nuovaRiga.insertCell(z);
+            cella.innerHTML = tabella[n][z].replace(/"/g, '');
+        }
+    } 
 
-    datiNumerici = righe.slice(1).map(riga => Number(riga[1].replace(/"/g, ''))).filter(val => !isNaN(val));
+   
+    datiNumerici = [];
+    
+  
+    for (let z = 1; z < righe.length; z++) {
+        let valore = Number(tabella[z][1].replace(/"/g, ''));
+        if (!isNaN(valore)) {
+            datiNumerici.push(valore);
+        } 
+    }
 
+    
     disegna();
 }
 
