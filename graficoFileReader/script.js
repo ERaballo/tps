@@ -77,7 +77,7 @@ function disegna() {
     // numeri su asse X
     righe.slice(1).forEach((riga, i) => {
         const xgrafico = (840 / (righe.length - 1)) * (i + 1);
-        grafico.fillText(riga[0].replace(/"/g, ' '), xgrafico, 595);
+        grafico.fillText(riga[0].replace(/"/g, ' '), xgrafico -10, 595);
     });
 
     // divido asse Y
