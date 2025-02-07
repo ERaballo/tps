@@ -32,7 +32,7 @@ function inserisci() {
     document.getElementById("titolo").innerHTML = "Informazioni del file";
     let tab = document.getElementById("tabella");
     
-    righe = stringa.split("\n"); e
+    righe = stringa.split("\n");
     tab.innerHTML = ""; 
 
     
