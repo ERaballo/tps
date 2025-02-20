@@ -1,0 +1,87 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 30%;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container-fluid {
+    background: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 90%;
+    overflow-x: auto;
+}
+
+h1 {
+    color: #333;
+    font-size: 22px;
+}
+
+input.in {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+#tabella {
+    width: 70%;
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
+#tabella th, #tabella td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#tabella th {
+    background-color: #007bff;
+    color: white;
+}
+
+#aggiorna {
+    background-color: #28a745;
+    margin-top: 15px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+#aggiorna:hover {
+    background-color: #218838;
+}
