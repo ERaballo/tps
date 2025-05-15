@@ -49,7 +49,7 @@ function mostraDettaglioProdotto() {
     return;
   }
 
-  fetch('dati.json')
+  fetch("./dati.json")
     .then(response => response.json())
     .then(json => {
       prodotti = json;
