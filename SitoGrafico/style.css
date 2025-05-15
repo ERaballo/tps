@@ -1,0 +1,204 @@
+/* Font Google consigliato: Orbitron per stile hi-tech/gaming */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  background-color: #0f0f0f;
+  color: #f0f0f0;
+}
+
+h1 {
+  text-align: center;
+  color: #00ffea;
+  margin-top: 1rem;
+  text-shadow: 0 0 8px #00ffea;
+}
+
+input[type="file"] {
+  display: block;
+  margin: 1rem auto;
+  padding: 0.5rem;
+  background: #1a1a1a;
+  color: #fff;
+  border: 2px solid #00ffea;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#contenitore {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.scheda {
+  background: #1a1a1a;
+  border: 2px solid #00ffea;
+  border-radius: 16px;
+  width: 250px;
+  padding: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-align: center;
+}
+
+.scheda:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #00ffea;
+}
+
+.scheda img {
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.scheda h2 {
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+.scheda p {
+  color: #00ffea;
+  font-weight: bold;
+}
+
+.scheda ul {
+  list-style: none;
+  padding: 0;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  color: #ccc;
+}
+
+/* Pagina dettaglio */
+.pagina-dettaglio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+}
+
+.immagine-prodotto img {
+  max-width: 100%;
+  border-radius: 12px;
+  border: 2px solid #00ffea;
+}
+
+.info-prodotto {
+  margin-top: 2rem;
+  background: #1a1a1a;
+  border-radius: 16px;
+  padding: 2rem;
+  border: 2px solid #00ffea;
+  width: 100%;
+}
+
+#nome-prodotto {
+  font-size: 2rem;
+  color: #00ffea;
+  text-shadow: 0 0 5px #00ffea;
+}
+
+#prezzo-prodotto {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+#specifiche-prodotto {
+  list-style: square;
+  padding-left: 1.5rem;
+  color: #ccc;
+  margin-bottom: 1.5rem;
+}
+
+button {
+  background-color: #00ffea;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #0f0f0f;
+  cursor: pointer;
+  margin-right: 1rem;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #00c2ba;
+}
+
+/* Carrello in griglia */
+#carrello-contenuto {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+/* Ricevuta */
+.ricevuta {
+  background-color: #1a1a1a;
+  border: 2px solid #00ffea;
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 500px;
+  margin: 2rem auto;
+  color: #f0f0f0;
+  font-family: 'Orbitron', sans-serif;
+  text-align: left;
+}
+
+.ricevuta h1 {
+  text-align: center;
+  color: #00ffea;
+  margin-bottom: 1rem;
+}
+
+.header,
+.footer {
+  text-align: center;
+  color: #ccc;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.linea {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.3rem 0;
+  font-size: 1rem;
+}
+
+.totale {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #00ffea;
+}
+
+.separatore {
+  border-top: 2px dashed #00ffea;
+  margin: 1rem 0;
+}
+
+#svuota{
+  color: white;
+  background-color: rgb(238, 49, 49);
+}
+#effetua-acquisto{
+  color: white;
+  background-color: rgb(28, 201, 28);
+}
+#contenuto-carrello {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem;
+}
