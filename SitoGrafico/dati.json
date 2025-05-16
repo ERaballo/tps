@@ -5,7 +5,7 @@
       "immagine": "./immagini/splitfiction.png",
       "specifiche": {
         "recensioni": "estremamente positive",
-        "data di rilascio": "6 mar 2025",
+        "data": "6 mar 2025",
         "Sviluppatore": "Hazelight studios",
         "editore": "Electronic Arts"
       }
@@ -16,7 +16,7 @@
       "immagine": "./immagini/cod.png",
       "specifiche": {
         "recensioni": "positive",
-        "data di rilascio": "12 nov 2012",
+        "data": "12 nov 2012",
         "Sviluppatore": "treyarch",
         "ㅤㅤㅤㅤeditore": "Activisionㅤㅤㅤㅤ"
       }
@@ -27,7 +27,7 @@
       "immagine": "./immagini/kingdom.png",
       "specifiche": {
         "recensioni": "molto positive",
-        "data di rilascio": "13 feb 2018",
+        "data": "13 feb 2018",
         "Sviluppatore": "Warhorse Studios",
         "editore": "Warhorse Studios"
       }
@@ -38,7 +38,7 @@
       "immagine": "./immagini/rainbow.png",
       "specifiche": {
         "recensioni": "perlopiù positive",
-        "data di rilascio": "1 dic 2015",
+        "data": "1 dic 2015",
         "Sviluppatore": "Ubisoft MontReal",
         "ㅤㅤㅤㅤeditore": "Ubisoftㅤㅤㅤㅤ"
       }
@@ -49,7 +49,7 @@
       "immagine": "./immagini/forza.png",
       "specifiche": {
         "recensioni": "molto positive",
-        "data di rilascio": "9 nov 2021",
+        "data": "9 nov 2021",
         "Sviluppatore": "Playground Games",
         "editore": "Xbox Games Studios"
       }
@@ -60,7 +60,7 @@
       "immagine": "./immagini/oblivion.png",
       "specifiche": {
         "recensioni": "molto positive",
-        "data di rilascio": "22 apr 2025",
+        "data": "22 apr 2025",
         "Sviluppatore": "Bethesda Game Studios, Virtuos",
         "editore": "Bethesda Softworks"
       }
@@ -71,7 +71,7 @@
       "immagine": "./immagini/grayzone.png",
       "specifiche": {
         "recensioni": "nella media",
-        "data di rilascio": "30 apr 2024",
+        "data": "30 apr 2024",
         "Sviluppatore": "MADFINGER Games, a.s.",
         "editore": "MADFINGER Games, a.s."
       }
@@ -82,7 +82,7 @@
       "immagine": "./immagini/schedule.png",
       "specifiche": {
         "recensioni": "molto positive",
-        "data di rilascio": "24 mar 2025",
+        "data": "24 mar 2025",
         "Sviluppatore": "TVGS",
         "ㅤㅤㅤㅤㅤeditore": "TVGSㅤㅤㅤㅤㅤㅤ"
       }
@@ -93,7 +93,7 @@
       "immagine": "./immagini/cyber.png",
       "specifiche": {
         "recensioni": "estremamente positive",
-        "data di rilascio": "10 dic 2020",
+        "data": "10 dic 2020",
         "Sviluppatore": "CD PROJEKT RED",
         "editore": "CD PROJEKT RED"
       }
