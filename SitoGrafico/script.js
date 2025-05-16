@@ -27,7 +27,8 @@ function mostraProdotti() {
     const specs = document.createElement("ul");
     for (let chiave in prodotto.specifiche) {
       const li = document.createElement("li");
-      li.textContent = `${chiave}: ${prodotto.specifiche[chiave]}`;
+      let valore=prodotto.specifiche[chiave];
+      li.textContent=chiave+": "+valore;
       specs.appendChild(li);
     }
 
@@ -68,7 +69,8 @@ function mostraDettaglioProdotto() {
       specificheList.innerHTML = "";
       for (let chiave in prodotto.specifiche) {
         const li = document.createElement("li");
-        li.textContent = `${chiave}: ${prodotto.specifiche[chiave]}`;
+        let valore=prodotto.specifiche[chiave];
+      li.textContent=chiave+": "+valore;
         specificheList.appendChild(li);
       }
 
