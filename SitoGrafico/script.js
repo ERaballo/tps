@@ -63,10 +63,14 @@ function mostraDettaglioProdotto() {
       document.getElementById("immagine").alt = prodotto.nome;
       document.getElementById("nome-prodotto").textContent = prodotto.nome;
       document.getElementById("prezzo-prodotto").textContent = "Prezzo: €" + prodotto.prezzo;
-      document.getElementById("recensioni").textContest=prodotto.recensioni;
-      document.getElementById("data-di-rilascio").textContest=prodotto.data;
-      document.getElementById("sviluppatore").textContest=prodotto.Sviluppatore;
-      document.getElementById("editore").textContest=prodotto.editore;
+     
+      const specificheList = document.getElementById("specifiche-prodotto");
+      specificheList.innerHTML = "";
+      for (let chiave in prodotto.specifiche) {
+        const li = document.createElement("li");
+        li.textContent = `${chiave}: ${prodotto.specifiche[chiave]}`;
+        specificheList.appendChild(li);
+      }
 
       document.getElementById("aggiungi-carrello").addEventListener("click", () => {
         let carrello = JSON.parse(localStorage.getItem("carrello")) || [];
