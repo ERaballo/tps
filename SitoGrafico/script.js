@@ -65,7 +65,7 @@ function mostraDettaglioProdotto() {
       document.getElementById("prezzo-prodotto").textContent = "Prezzo: €" + prodotto.prezzo;
       document.getElementById("recensioni").textContest=prodotto.recensioni;
       document.getElementById("data-di-rilascio").textContest=prodotto.data;
-      document.getElementById("sviluppatore").textContest=prodotto.sviluppatore;
+      document.getElementById("sviluppatore").textContest=prodotto.Sviluppatore;
       document.getElementById("editore").textContest=prodotto.editore;
 
       document.getElementById("aggiungi-carrello").addEventListener("click", () => {
