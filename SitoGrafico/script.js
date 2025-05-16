@@ -63,14 +63,7 @@ function mostraDettaglioProdotto() {
       document.getElementById("immagine").alt = prodotto.nome;
       document.getElementById("nome-prodotto").textContent = prodotto.nome;
       document.getElementById("prezzo-prodotto").textContent = "Prezzo: €" + prodotto.prezzo;
-
-      const specificheList = document.getElementById("specifiche-prodotto");
-      specificheList.innerHTML = "";
-      for (let chiave in prodotto.specifiche) {
-        const li = document.createElement("li");
-        li.textContent = `${chiave}: ${prodotto.specifiche[chiave]}`;
-        specificheList.appendChild(li);
-      }
+      document.getElementById("specifiche").textContest=prodotto.specifiche;
 
       document.getElementById("aggiungi-carrello").addEventListener("click", () => {
         let carrello = JSON.parse(localStorage.getItem("carrello")) || [];
