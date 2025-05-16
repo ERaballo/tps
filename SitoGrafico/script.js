@@ -63,7 +63,10 @@ function mostraDettaglioProdotto() {
       document.getElementById("immagine").alt = prodotto.nome;
       document.getElementById("nome-prodotto").textContent = prodotto.nome;
       document.getElementById("prezzo-prodotto").textContent = "Prezzo: €" + prodotto.prezzo;
-      document.getElementById("specifiche").textContest=prodotto.specifiche;
+      document.getElementById("recensioni").textContest=prodotto.recensioni;
+      document.getElementById("data-di-rilascio").textContest=prodotto.data;
+      document.getElementById("sviluppatore").textContest=prodotto.sviluppatore;
+      document.getElementById("editore").textContest=prodotto.editore;
 
       document.getElementById("aggiungi-carrello").addEventListener("click", () => {
         let carrello = JSON.parse(localStorage.getItem("carrello")) || [];
