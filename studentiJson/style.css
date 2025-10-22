@@ -1,0 +1,111 @@
+/* ======= Stile generale ======= */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f0f4ff, #e3f2fd);
+  margin: 0;
+  padding: 0;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+}
+
+/* ======= Titolo ======= */
+h1 {
+  text-align: center;
+  color: #2b3a67;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+/* ======= Contenitore principale ======= */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 900px;
+}
+
+/* ======= Pulsanti ======= */
+button {
+  background-color: #2b3a67;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  margin-bottom: 20px;
+}
+
+button:hover {
+  background-color: #3f51b5;
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* ======= Input ======= */
+input[type="text"] {
+  padding: 8px;
+  border: 2px solid #2b3a67;
+  border-radius: 6px;
+  width: 300px;
+  text-align: center;
+  font-size: 16px;
+  outline: none;
+  margin: 10px;
+}
+
+input[type="text"]:focus {
+  border-color: #3f51b5;
+  box-shadow: 0 0 5px #3f51b5;
+}
+
+/* ======= Tabella ======= */
+table {
+  width: 60%;
+  margin-top: 30px;
+  border-collapse: collapse;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th {
+  background-color: #2b3a67;
+  color: white;
+  padding: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+td {
+  text-align: center;
+  padding: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+tr:hover {
+  background-color: #f1f5ff;
+}
+
+/* ======= Sezioni ======= */
+h3 {
+  color: #2b3a67;
+  margin-top: 30px;
+  text-align: center;
+}
+
+hr {
+  width: 80%;
+  margin:0px;
+}
