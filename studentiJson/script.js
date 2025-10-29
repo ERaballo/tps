@@ -7,14 +7,10 @@ function caricaStudenti() {
   req.send();
   req.onload= function() {
       studenti= JSON.parse(req.responseText);
-      mostraTutti();
+      mostraTabella(studenti);
   };
 }
-
-// Funzione per mostrare tutti gli studenti
-function mostraTutti() {
-  mostraTabella(studenti);
-}
+  
 
 // Filtra per lettera iniziale del cognome
 function filtraPerLettera() {
@@ -62,4 +58,5 @@ function mostraTabella(lista) {
 // Esegue il caricamento dei dati appena la pagina è pronta
 window.onload= function() {
   caricaStudenti();
+
 };
