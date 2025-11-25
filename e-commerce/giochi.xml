@@ -1,0 +1,30 @@
+<giochi>
+
+    <gioco>
+        <id>ticket</id>
+        <nome>Ticket to Ride</nome>
+        <prezzo>44.90</prezzo>
+        <marca>Days of Wonder</marca>
+        <img>img/ticket.jpg</img>
+        <descrizione>Costruisci tratte ferroviarie e conquista l’America.</descrizione>
+    </gioco>
+
+    <gioco>
+        <id>splendor</id>
+        <nome>Splendor</nome>
+        <prezzo>32.50</prezzo>
+        <marca>Space Cowboys</marca>
+        <img>img/splendor.jpg</img>
+        <descrizione>Acquista gemme e sviluppa il tuo impero commerciale.</descrizione>
+    </gioco>
+
+    <gioco>
+        <id>terraforming</id>
+        <nome>Terraforming Mars</nome>
+        <prezzo>59.90</prezzo>
+        <marca>Fryx Games</marca>
+        <img>img/terraforming.jpg</img>
+        <descrizione>Trasforma Marte in un pianeta abitabile con strategie avanzate.</descrizione>
+    </gioco>
+
+</giochi>
