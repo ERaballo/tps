@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "nome": "Catan",
+        "marca": "Kosmos",
+        "prezzo": 34.99,
+        "immagine": "img/catan.jpg"
+    },
+    {
+        "id": 2,
+        "nome": "Ticket to Ride",
+        "marca": "Days of Wonder",
+        "prezzo": 29.99,
+        "immagine": "img/ticket.jpg"
+    }
+]

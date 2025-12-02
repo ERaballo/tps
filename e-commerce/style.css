@@ -1,0 +1,304 @@
+/* -----------------------------
+   GLOBAL STYLE
+----------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f8f9fb;
+    margin: 0;
+    padding: 0;
+    color: #222;
+}
+
+/* -----------------------------
+   HEADER
+----------------------------- */
+
+header {
+    background: #1a73e8;
+    padding: 20px 40px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    background: rgba(255,255,255,0.15);
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: .2s;
+}
+
+header a:hover {
+    background: rgba(255,255,255,0.35);
+}
+
+/* -----------------------------
+   FILTRI
+----------------------------- */
+
+#filtri {
+    margin: 30px auto;
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    gap: 20px;
+}
+
+#filtri select {
+    padding: 12px 16px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: white;
+    cursor: pointer;
+    transition: .2s;
+}
+
+#filtri select:hover {
+    border-color: #1a73e8;
+}
+
+/* -----------------------------
+   GRID DEI PRODOTTI
+----------------------------- */
+
+#prodotti {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto 50px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+/* -----------------------------
+   CARD DEI GIOCHI
+----------------------------- */
+
+.card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.10);
+    overflow: hidden;
+    transition: transform .25s ease, box-shadow .25s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.20);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background: #eee;
+}
+
+.card h3 {
+    font-size: 18px;
+    margin: 14px 16px;
+    color: #333;
+}
+
+.card p {
+    margin: 0 16px 10px 16px;
+    color: #555;
+    font-size: 14px;
+}
+
+/* PREZZO */
+.card .price {
+    font-size: 19px;
+    font-weight: 600;
+    color: #1a73e8;
+    margin-bottom: 15px;
+}
+
+/* -----------------------------
+   BOTTONI
+----------------------------- */
+
+.card button {
+    width: calc(100% - 32px);
+    margin: 0 16px 16px 16px;
+    padding: 12px 0;
+    background: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background .2s ease, transform .15s ease;
+}
+
+.card button:hover {
+    background: #0d5ec2;
+}
+
+.card button:active {
+    transform: scale(0.97);
+}
+
+/* -----------------------------
+   CARRELLO
+----------------------------- */
+
+#carrelloContainer {
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+#carrelloContainer div {
+    background: white;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#carrelloContainer button {
+    background: #e53935;
+    border: none;
+    padding: 8px 12px;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#carrelloContainer button:hover {
+    background: #c62828;
+}
+
+/* -----------------------------
+   BOTTONE STAMPA SCONTRINO
+----------------------------- */
+
+#stampaScontrino {
+    display: block;
+    margin: 30px auto;
+    padding: 14px 20px;
+    background: #1a73e8;
+    border: none;
+    color: white;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+#stampaScontrino:hover {
+    background: #0d5ec2;
+}
+
+/* -----------------------------
+   RESPONSIVE
+----------------------------- */
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 20px;
+    }
+
+    .card img {
+        height: 160px;
+    }
+}
+
+.card img {
+    width: 100%;
+    height: auto;  /* Mantiene le proporzioni originali */
+}
+
+/* -----------------------------
+   PAGINA SCONTRINO
+----------------------------- */
+
+#scontrino {
+    max-width: 400px;
+    margin: 40px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.20);
+    font-family: 'Inter', sans-serif;
+}
+
+#scontrino h2, #scontrino h3 {
+    text-align: center;
+    margin-top: 0;
+}
+
+#scontrino p, #scontrino span {
+    font-size: 15px;
+}
+
+.rigaProdotto {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.note {
+    text-align: center;
+    font-size: 12px;
+    margin: 3px 0;
+    color: #777;
+}
+
+.printBtn, .backBtn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.printBtn {
+    background: #1a73e8;
+    color: white;
+}
+
+.printBtn:hover {
+    background: #0d5ec2;
+}
+
+.backBtn {
+    background: #e53935;
+    color: white;
+}
+
+.backBtn:hover {
+    background: #c62828;
+}
+
+/* Modalità stampa */
+@media print {
+    .printBtn, .backBtn {
+        display: none;
+    }
+}

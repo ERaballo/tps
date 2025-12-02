@@ -1,0 +1,9 @@
+<giochi>
+  <gioco>
+    <id>5</id>
+    <nome>Pandemic</nome>
+    <marca>Z-Man Games</marca>
+    <prezzo>32.50</prezzo>
+    <immagine>img/pandemic.jpg</immagine>
+  </gioco>
+</giochi>
