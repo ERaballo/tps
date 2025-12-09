@@ -1,63 +1,80 @@
-function loadJSON(path, callback) {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", path, true);
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            callback(JSON.parse(xhr.responseText));
+// Questa funzione serve a caricare un file JSON tramite una richiesta HTTP
+function caricaJSON(percorso, Finito) {
+    let richiesta = new XMLHttpRequest();               
+    richiesta.open("GET", percorso, true);              
+
+    richiesta.onreadystatechange = function () {        
+        if (richiesta.readyState === 4 && richiesta.status === 200) {  
+            Finito(JSON.parse(richiesta.responseText));         
         }
     };
-    xhr.send();
+
+    richiesta.send();                                   
 }
 
-function loadCSV(path, callback) {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", path, true);
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            callback(parseCSV(xhr.responseText));
+
+// Funzione per leggere un file CSV
+function caricaCSV(percorso, Finito) {
+    let richiesta = new XMLHttpRequest();              
+    richiesta.open("GET", percorso, true);              
+
+    richiesta.onreadystatechange = function () {       
+        if (richiesta.readyState === 4 && richiesta.status === 200) {  
+            Finito(conversioneCSV(richiesta.responseText));    
+        };
+    }
+    richiesta.send();                                   
+}
+
+
+
+// Funzione per leggere un file XML
+function caricaXML(percorso, Finito) {
+    let richiesta = new XMLHttpRequest();              
+    richiesta.open("GET", percorso, true);              
+
+    richiesta.onreadystatechange = function () {
+        if (richiesta.readyState === 4 && richiesta.status === 200) {
+            let parser = new DOMParser();               
+            let xmlConvertito = parser.parseFromString(richiesta.responseText, "application/xml");  
+            Finito(conversioneXML(xmlConvertito));   
         }
     };
-    xhr.send();
+
+    richiesta.send();                                   
 }
 
-function loadXML(path, callback) {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", path, true);
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            var parser = new DOMParser();
-            var xml = parser.parseFromString(xhr.responseText, "application/xml");
-            callback(parseXML(xml));
-        }
-    };
-    xhr.send();
-}
 
-function parseCSV(csv) {
-    var lines = csv.trim().split("\n");
-    var rows = lines.slice(1);
-    var arr = [];
+// Converte un CSV in un array di oggetti
+function conversioneCSV(testo) {
+    let righe = testo.trim().split("\n");               
+    let dati = righe.slice(1);                          
+    let lista = [];                                    
 
-    for (var i = 0; i < rows.length; i++) {
-        var r = rows[i].split(";");
-        arr.push({
-            id: r[0],
-            nome: r[1],
-            marca: r[2],
-            prezzo: parseFloat(r[3]),
-            immagine: r[4]
+    for (let i = 0; i < dati.length; i++) {             
+        let campi = dati[i].split(";");                 
+
+        lista.push({                                    
+            id: campi[0],
+            nome: campi[1],
+            marca: campi[2],
+            prezzo: parseFloat(campi[3]),
+            immagine: campi[4]
         });
     }
-    return arr;
+    return lista;                                       
 }
 
-function parseXML(xml) {
-    var giochi = xml.getElementsByTagName("gioco");
-    var arr = [];
 
-    for (var i = 0; i < giochi.length; i++) {
-        var g = giochi[i];
-        arr.push({
+// Converte file XML in array di oggetti
+function conversioneXML(xml) {
+    let listaGiochi = xml.getElementsByTagName("gioco");    
+    let raccolta = [];                                      
+
+    for (let i = 0; i < listaGiochi.length; i++) {
+        let g = listaGiochi[i];                             
+
+        raccolta.push({
             id: g.getElementsByTagName("id")[0].textContent,
             nome: g.getElementsByTagName("nome")[0].textContent,
             marca: g.getElementsByTagName("marca")[0].textContent,
@@ -65,94 +82,107 @@ function parseXML(xml) {
             immagine: g.getElementsByTagName("immagine")[0].textContent
         });
     }
-    return arr;
+    return raccolta;                                        
 }
 
-var prodotti = [];
 
+
+let listaProdotti = [];
+
+
+// Carica JSON CSV e XML e li unisce
 function caricaTuttiIDati() {
-    loadJSON("giochi.json", function (jsonData) {
-        loadCSV("giochi.csv", function (csvData) {
-            loadXML("giochi.xml", function (xmlData) {
-                prodotti = jsonData.concat(csvData).concat(xmlData);
+    caricaJSON("giochi.json", function (datiJSON) {
+        caricaCSV("giochi.csv", function (datiCSV) {
+            caricaXML("giochi.xml", function (datiXML) {
 
-                initFiltri();
-                mostraProdotti();
+                listaProdotti = datiJSON.concat(datiCSV).concat(datiXML);  
+                preparaFiltri();                                          
+                mostraProdotti();                                          
             });
         });
     });
 }
 
+
+// caricamento apertura pagina
 caricaTuttiIDati();
 
-function initFiltri() {
-    var marcaSel = document.getElementById("marcaSelect");
-    var marche = [];
-    var temp = {};
 
-    for (var i = 0; i < prodotti.length; i++) {
-        if (!temp[prodotti[i].marca]) {
-            temp[prodotti[i].marca] = true;
-            marche.push(prodotti[i].marca);
+// Crea il filtro marche
+function preparaFiltri() {
+    let selettore = document.getElementById("marcaSelect"); 
+    let marcheUniche = [];
+    let controllo = {};                                     
+
+    for (let i = 0; i < listaProdotti.length; i++) {
+        if (!controllo[listaProdotti[i].marca]) {           
+            controllo[listaProdotti[i].marca] = true;        
+            marcheUniche.push(listaProdotti[i].marca);      
         }
     }
 
-    marcaSel.innerHTML = "<option value=''>Tutte le Marche</option>";
+    selettore.innerHTML = "<option value=''>Tutte le Marche</option>";  
 
-    for (var j = 0; j < marche.length; j++) {
-        marcaSel.innerHTML += "<option>" + marche[j] + "</option>";
+    for (let j = 0; j < marcheUniche.length; j++) {
+        selettore.innerHTML += "<option>" + marcheUniche[j] + "</option>";
     }
 
-    marcaSel.onchange = mostraProdotti;
+    selettore.onchange = mostraProdotti;                  
 }
 
+// Mostra i prodotti nella pagina
 function mostraProdotti() {
-    var marcaSel = document.getElementById("marcaSelect").value;
-    var lista = prodotti;
+    let marcaScelta = document.getElementById("marcaSelect").value;    
+    let prodottiDaMostrare = listaProdotti;                          
 
-    if (marcaSel) {
-        var filtro = [];
-        for (var i = 0; i < lista.length; i++) {
-            if (lista[i].marca === marcaSel) {
-                filtro.push(lista[i]);
+    if (marcaScelta) {                                                
+        let filtrati = [];
+
+        for (let i = 0; i < prodottiDaMostrare.length; i++) {
+            if (prodottiDaMostrare[i].marca === marcaScelta) {
+                filtrati.push(prodottiDaMostrare[i]);
             }
         }
-        lista = filtro;
+
+        prodottiDaMostrare = filtrati;                               
     }
 
-    var cont = document.getElementById("prodotti");
-    cont.innerHTML = "";
+    let contenitore = document.getElementById("prodotti");             
+    contenitore.innerHTML = "";                                       
 
-    for (var j = 0; j < lista.length; j++) {
-        var p = lista[j];
+    for (let j = 0; j < prodottiDaMostrare.length; j++) {
+        let prodotto = prodottiDaMostrare[j];
 
-        var div = document.createElement("div");
-        div.className = "card";
+        let card = document.createElement("div");                     
+        card.className = "card";
 
-        div.innerHTML =
-            "<img src='" + p.immagine + "' alt='" + p.nome + "'>" +
-            "<h3>" + p.nome + "</h3>" +
-            "<p>" + p.marca + "</p>" +
-            "<p><b>€" + p.prezzo.toFixed(2) + "</b></p>" +
-            "<button onclick='aggiungiCarrello(" + p.id + ")'>Aggiungi al carrello</button>";
+        card.innerHTML =
+            "<img src='" + prodotto.immagine + "' alt='" + prodotto.nome + "'>" +
+            "<h3>" + prodotto.nome + "</h3>" +
+            "<p>" + prodotto.marca + "</p>" +
+            "<p><b>€" + prodotto.prezzo.toFixed(2) + "</b></p>" +
+            "<button onclick='aggiungiAlCarrello(" + prodotto.id + ")'>Aggiungi al carrello</button>";
 
-        cont.appendChild(div);
+        contenitore.appendChild(card);
     }
 }
 
-function aggiungiCarrello(id) {
-    var carrello = JSON.parse(localStorage.getItem("carrello")) || [];
-    var prodotto = null;
 
-    for (var i = 0; i < prodotti.length; i++) {
-        if (prodotti[i].id == id) {
-            prodotto = prodotti[i];
+// Aggiunge un prodotto al carrello
+function aggiungiAlCarrello(id) {
+    let carrello = JSON.parse(localStorage.getItem("carrello")) || [];   
+    let prodottoDaAggiungere = null;
+
+    for (let i = 0; i < listaProdotti.length; i++) {                    
+        if (listaProdotti[i].id == id) {
+            prodottoDaAggiungere = listaProdotti[i];
             break;
         }
     }
 
-    if (prodotto) {
-        carrello.push(prodotto);
-        localStorage.setItem("carrello", JSON.stringify(carrello));
+    if (prodottoDaAggiungere) {                                         
+        carrello.push(prodottoDaAggiungere);                            
+        localStorage.setItem("carrello", JSON.stringify(carrello));     
     }
 }
