@@ -1,39 +1,39 @@
-const cont = document.getElementById("carrelloContainer");
-const btn = document.getElementById("stampaScontrino");
-
-let carrello = JSON.parse(localStorage.getItem("carrello")) || [];
-
+let boxCarrello = document.getElementById("carrelloContainer");
+let bottoneScontrino = document.getElementById("stampaScontrino");
+let listaCarrello = JSON.parse(localStorage.getItem("carrello")) || [];
 
 function mostraCarrello() {
-    cont.innerHTML = "";
+    boxCarrello.innerHTML = "";
 
-    if (carrello.length === 0) {
-        cont.innerHTML = "<p>Il carrello è vuoto.</p>";
+    // se il carrello è vuoto
+    if (listaCarrello.length === 0) {
+        boxCarrello.innerHTML = "<p>Il carrello è vuoto.</p>";
         return;
     }
 
-    carrello.forEach((p, i) => {
-        const riga = document.createElement("div");
-        riga.innerHTML = `
-            ${p.nome} - €${p.prezzo.toFixed(2)}
-            <button onclick="rimuovi(${i})">Rimuovi</button>
-        `;
-        cont.appendChild(riga);
-    });
+    // ciclo su tutti i prodotti nel carrello
+    for (let i = 0; i < listaCarrello.length; i++) {
+        let prodotto = listaCarrello[i];
+        let rigaProdotto = document.createElement("div");
+        rigaProdotto.innerHTML =
+            prodotto.nome +
+            " - €" + prodotto.prezzo.toFixed(2) +
+            " <button onclick='rimuoviDalCarrello(" + i + ")'>Rimuovi</button>";
+        boxCarrello.appendChild(rigaProdotto);
+    }
 }
 
-
-function rimuovi(i) {
-    carrello.splice(i, 1);
-    localStorage.setItem("carrello", JSON.stringify(carrello));
+// Rimuove un prodotto
+function rimuoviDalCarrello(indice) {
+    listaCarrello.splice(indice, 1);
+    localStorage.setItem("carrello", JSON.stringify(listaCarrello));
     mostraCarrello();
 }
 
-
-document.getElementById("stampaScontrino").addEventListener("click", function () {
+// porta allo scontrino
+bottoneScontrino.addEventListener("click", function () {
     window.location.href = "scontrino.html";
 });
-
 
 
 mostraCarrello();
